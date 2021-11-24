@@ -2,7 +2,7 @@ The intention of this mini-project is to emphasize on how Relative Imports work 
 
 The best solution I found while trying to search for the answer was by BrenBarn in stackoverflow : https://stackoverflow.com/a/14132912/14384792
 
-** Highlights / TL;DR **
+**Highlights / TL;DR**
 
 1. There is a big difference between directly running a Python file, and importing that file from somewhere else. Just knowing what directory a file is in does not determine what package Python thinks it is in. That depends, additionally, on how you load the file into Python (by running or by importing).
 
