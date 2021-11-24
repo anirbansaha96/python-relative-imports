@@ -172,24 +172,68 @@
 
 07. python packageA/pkgAfileC.py 
     a. from packageA.pkgAfileA import ABCD; from packageA.pkgAfileB import printCWD, print__Name__
+        No module named 'packageA'
     b. from .packageA.pkgAfileA import ABCD; from .packageA.pkgAfileB import printCWD, print__Name__
+        No module named '__main__.packageA'; '__main__' is not a package
     c. from pkgAfileA import ABCD, from  pkgAfileB import printCWD, print__Name__
+        attempted relative import with no known parent package
     d. from ..packageA.pkgAfileA import ABCD; from ..packageA.pkgAfileB import printCWD, print__Name__
+        attempted relative import beyond top-level package
     e. from .pkgAfileA import ABCD; from .pkgAfileB import printCWD, print__Name__
+        No module named '__main__.pkgAfileA'; '__main__' is not a package
 
 08. cd packageA > python pkgAfileC.py 
     a. from packageA.pkgAfileA import ABCD; from packageA.pkgAfileB import printCWD, print__Name__
+        No module named 'packageA'
     b. from .packageA.pkgAfileA import ABCD; from .packageA.pkgAfileB import printCWD, print__Name__
+        No module named '__main__.packageA'; '__main__' is not a package
     c. from pkgAfileA import ABCD, from  pkgAfileB import printCWD, print__Name__
+        attempted relative import with no known parent package
     d. from ..packageA.pkgAfileA import ABCD; from ..packageA.pkgAfileB import printCWD, print__Name__
+        attempted relative import beyond top-level package
     e. from .pkgAfileA import ABCD; from .pkgAfileB import printCWD, print__Name__
+        No module named '__main__.pkgAfileA'; '__main__' is not a package
     
 10. cd packageA > python -m pkgAfileC
     a. from packageA.pkgAfileA import ABCD; from packageA.pkgAfileB import printCWD, print__Name__
+        No module named 'packageA'
     b. from .packageA.pkgAfileA import ABCD; from .packageA.pkgAfileB import printCWD, print__Name__
+        attempted relative import with no known parent package
     c. from pkgAfileA import ABCD, from  pkgAfileB import printCWD, print__Name__
+        attempted relative import with no known parent package
     d. from ..packageA.pkgAfileA import ABCD; from ..packageA.pkgAfileB import printCWD, print__Name__
+        attempted relative import with no known parent package
     e. from .pkgAfileA import ABCD; from .pkgAfileB import printCWD, print__Name__
+        attempted relative import with no known parent package
+
+11. python -m packageA.pkgAfileC
+    a. from packageA.pkgAfileA import ABCD; from packageA.pkgAfileB import printCWD, print__Name__
+        The current Working Directory is :  C:\Users\anirb\Downloads\exploreImports
+        ABCD
+        Class imported from : 
+        This function (inside packageA/pkAfileB.py) is in :  packageA.pkgAfileB
+        The name of the module calling this function is :  packageA.pkgAfileA
+        <class 'packageA.pkgAfileA.ABCD'>
+        This function (inside packageA/pkAfileB.py) is in :  packageA.pkgAfileB
+        The name of the module calling this function is :  __main__
+
+    b. from .packageA.pkgAfileA import ABCD; from .packageA.pkgAfileB import printCWD, print__Name__
+        No module named 'packageA.packageA'
+
+    c. from pkgAfileA import ABCD, from  pkgAfileB import printCWD, print__Name__
+        No module named 'pkgAfileA'
+
+    d. from ..packageA.pkgAfileA import ABCD; from ..packageA.pkgAfileB import printCWD, print__Name__
+        attempted relative import beyond top-level package
+    e. from .pkgAfileA import ABCD; from .pkgAfileB import printCWD, print__Name__
+        The current Working Directory is :  C:\Users\anirb\Downloads\exploreImports
+        ABCD
+        Class imported from :
+        This function (inside packageA/pkAfileB.py) is in :  packageA.pkgAfileB
+        The name of the module calling this function is :  packageA.pkgAfileA
+        <class 'packageA.pkgAfileA.ABCD'>
+        This function (inside packageA/pkAfileB.py) is in :  packageA.pkgAfileB
+        The name of the module calling this function is :  __main__
 
 ----
 Interative shell in each directory

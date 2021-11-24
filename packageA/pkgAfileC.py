@@ -11,16 +11,6 @@ try:
 except Exception as e:
     print(e)
 
-try:
-    print('--------------------------------------------------------')
-    from packageA.pkgAfileA import ABCD
-    from packageA import pkgAfileB 
-    pkgAfileB.printCWD(os.getcwd())
-    abcd = ABCD()
-    print(type(abcd))
-    pkgAfileB.print__Name__(__name__)
-except Exception as e:
-    print(e)
 
 try:
     print('--------------------------------------------------------')
@@ -33,14 +23,15 @@ try:
 except Exception as e:
     print(e)
 
+
 try:
     print('--------------------------------------------------------')
-    from .packageA.pkgAfileA import ABCD
-    from .packageA import pkgAfileB
-    pkgAfileB.printCWD(os.getcwd())
+    from pkgAfileA import ABCD
+    from pkgAfileB import printCWD, print__Name__
+    printCWD(os.getcwd())
     abcd = ABCD()
     print(type(abcd))
-    pkgAfileB.print__Name__(__name__)
+    print__Name__(__name__)
 except Exception as e:
     print(e)
 
@@ -57,11 +48,11 @@ except Exception as e:
 
 try:
     print('--------------------------------------------------------')
-    from ..packageA.pkgAfileA import ABCD
-    from ..packageA import pkgAfileB
-    pkgAfileB.printCWD(os.getcwd())
+    from .pkgAfileA import ABCD
+    from .pkgAfileB import printCWD, print__Name__
+    printCWD(os.getcwd())
     abcd = ABCD()
     print(type(abcd))
-    pkgAfileB.print__Name__(__name__)
+    print__Name__(__name__)
 except Exception as e:
     print(e)
