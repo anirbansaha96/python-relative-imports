@@ -146,11 +146,29 @@
 
 06. cd folderB > python -m folderBfileA 
     a. from packageA.pkgAfileA import ABCD; from packageA.pkgAfileB import printCWD, print__Name__
+        # OUTPUT:
+        No module named 'packageA'
+
     b. from packageA.pkgAfileA import ABCD; from packageA import pkgAfileB
+        # OUTPUT:
+        No module named 'packageA'
+
     c. from .packageA.pkgAfileA import ABCD; from .packageA.pkgAfileB import printCWD, print__Name__
+        # OUTPUT:
+        attempted relative import with no known parent package
+
     d. from .packageA.pkgAfileA import ABCD; from .packageA import pkgAfileB
+        # OUTPUT:
+        attempted relative import with no known parent package
+
     e. from ..packageA.pkgAfileA import ABCD; from ..packageA.pkgAfileB import printCWD, print__Name__
+        # OUTPUT:
+        attempted relative import with no known parent package
+
     f. from ..packageA.pkgAfileA import ABCD; from ..packageA import pkgAfileB
+        # OUTPUT:
+        attempted relative import with no known parent package
+
 
 07. python packageA/pkgAfileC.py 
     a. from packageA.pkgAfileA import ABCD; from packageA.pkgAfileB import printCWD, print__Name__
@@ -159,6 +177,10 @@
     d. from .packageA.pkgAfileA import ABCD; from .packageA import pkgAfileB
     e. from pkgAfileA import ABCD, from  pkgAfileB import printCWD, print__Name__
     f. from pkgAfileA import ABCD, import pkgAfileB
+    g. from ..packageA.pkgAfileA import ABCD; from ..packageA.pkgAfileB import printCWD, print__Name__
+    h. from ..packageA.pkgAfileA import ABCD; from ..packageA import pkgAfileB
+    i. from .pkgAfileA import ABCD; from .pkgAfileB import printCWD, print__Name__
+    j. from .pkgAfileA import ABCD; import .pkgAfileB 
 
 08. cd packageA > python pkgAfileC.py 
     a. from packageA.pkgAfileA import ABCD; from packageA.pkgAfileB import printCWD, print__Name__
@@ -166,7 +188,11 @@
     c. from .packageA.pkgAfileA import ABCD; from .packageA.pkgAfileB import printCWD, print__Name__
     d. from .packageA.pkgAfileA import ABCD; from .packageA import pkgAfileB
     e. from pkgAfileA import ABCD, from  pkgAfileB import printCWD, print__Name__
-    f. from pkgAfileA import ABCD, import pkgAfileB\
+    f. from pkgAfileA import ABCD, import pkgAfileB
+    g. from ..packageA.pkgAfileA import ABCD; from ..packageA.pkgAfileB import printCWD, print__Name__
+    h. from ..packageA.pkgAfileA import ABCD; from ..packageA import pkgAfileB
+    i. from .pkgAfileA import ABCD; from .pkgAfileB import printCWD, print__Name__
+    j. from .pkgAfileA import ABCD; import .pkgAfileB 
 
 09. python -m packageA.pkgAfileC
     a. from packageA.pkgAfileA import ABCD; from packageA.pkgAfileB import printCWD, print__Name__
@@ -175,6 +201,10 @@
     d. from .packageA.pkgAfileA import ABCD; from .packageA import pkgAfileB
     e. from pkgAfileA import ABCD, from  pkgAfileB import printCWD, print__Name__
     f. from pkgAfileA import ABCD, import pkgAfileB
+    g. from ..packageA.pkgAfileA import ABCD; from ..packageA.pkgAfileB import printCWD, print__Name__
+    h. from ..packageA.pkgAfileA import ABCD; from ..packageA import pkgAfileB
+    i. from .pkgAfileA import ABCD; from .pkgAfileB import printCWD, print__Name__
+    j. from .pkgAfileA import ABCD; import .pkgAfileB 
     
 10. cd packageA > python -m pkgAfileC
     a. from packageA.pkgAfileA import ABCD; from packageA.pkgAfileB import printCWD, print__Name__
@@ -183,6 +213,10 @@
     d. from .packageA.pkgAfileA import ABCD; from .packageA import pkgAfileB
     e. from pkgAfileA import ABCD, from  pkgAfileB import printCWD, print__Name__
     f. from pkgAfileA import ABCD, import pkgAfileB
+    g. from ..packageA.pkgAfileA import ABCD; from ..packageA.pkgAfileB import printCWD, print__Name__
+    h. from ..packageA.pkgAfileA import ABCD; from ..packageA import pkgAfileB
+    i. from .pkgAfileA import ABCD; from .pkgAfileB import printCWD, print__Name__
+    j. from .pkgAfileA import ABCD; import .pkgAfileB 
 
 ----
 Interative shell in each directory
