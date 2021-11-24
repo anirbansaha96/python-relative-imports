@@ -1,0 +1,135 @@
+01. python mainfolderfile.py
+    a. from packageA.pkgAfileA import ABCD; from packageA.pkgAfileB import printCWD, print__Name__
+        # OUTPUT:
+        The current Working Directory is :  C:\Users\anirb\Downloads\exploreImports
+        ABCD
+        Class imported from : 
+        This function (inside packageA/pkAfileB.py) is in :  packageA.pkgAfileB
+        The name of the module calling this function is :  packageA.pkgAfileA
+        <class 'packageA.pkgAfileA.ABCD'>
+        This function (inside packageA/pkAfileB.py) is in :  packageA.pkgAfileB
+        The name of the module calling this function is :  __main__
+
+    b. from packageA.pkgAfileA import ABCD; from packageA import pkgAfileB
+        # OUTPUT:
+        The current Working Directory is :  C:\Users\anirb\Downloads\exploreImports
+        ABCD
+        Class imported from : 
+        This function (inside packageA/pkAfileB.py) is in :  packageA.pkgAfileB
+        The name of the module calling this function is :  packageA.pkgAfileA
+        <class 'packageA.pkgAfileA.ABCD'>
+        The current Working Directory is :  C:\Users\anirb\Downloads\exploreImports
+        This function (inside packageA/pkAfileB.py) is in :  packageA.pkgAfileB
+        The name of the module calling this function is :  __main__
+    c. from .packageA.pkgAfileA import ABCD; from .packageA.pkgAfileB import printCWD, print__Name__
+        # OUTPUT:
+        No module named '__main__.packageA'; '__main__' is not a package
+
+    d. from .packageA.pkgAfileA import ABCD; from .packageA import pkgAfileB
+        # OUTPUT:
+        No module named '__main__.packageA'; '__main__' is not a package
+
+
+02. python -m mainfolderfile 
+    a. from packageA.pkgAfileA import ABCD; from packageA.pkgAfileB import printCWD, print__Name__
+        # OUTPUT:
+        The current Working Directory is :  C:\Users\anirb\Downloads\exploreImports
+        ABCD
+        Class imported from : 
+        This function (inside packageA/pkAfileB.py) is in :  packageA.pkgAfileB
+        The name of the module calling this function is :  packageA.pkgAfileA
+        <class 'packageA.pkgAfileA.ABCD'>
+        This function (inside packageA/pkAfileB.py) is in :  packageA.pkgAfileB
+        The name of the module calling this function is :  __main__
+
+    b. from packageA.pkgAfileA import ABCD; from packageA import pkgAfileB
+        # OUTPUT:
+        The current Working Directory is :  C:\Users\anirb\Downloads\exploreImports
+        ABCD
+        Class imported from : 
+        This function (inside packageA/pkAfileB.py) is in :  packageA.pkgAfileB
+        The name of the module calling this function is :  packageA.pkgAfileA
+        <class 'packageA.pkgAfileA.ABCD'>
+        The current Working Directory is :  C:\Users\anirb\Downloads\exploreImports
+        This function (inside packageA/pkAfileB.py) is in :  packageA.pkgAfileB
+        The name of the module calling this function is :  __main__
+
+    c. from .packageA.pkgAfileA import ABCD; from .packageA.pkgAfileB import printCWD, print__Name__
+        # OUTPUT:
+        attempted relative import with no known parent package
+
+    d. from .packageA.pkgAfileA import ABCD; from .packageA import pkgAfileB
+        # OUTPUT:
+        attempted relative import with no known parent package
+
+        
+03. python folderB/folderBfileA.py 
+    a. from packageA.pkgAfileA import ABCD; from packageA.pkgAfileB import printCWD, print__Name__
+    b. from packageA.pkgAfileA import ABCD; from packageA import pkgAfileB
+    c. from .packageA.pkgAfileA import ABCD; from .packageA.pkgAfileB import printCWD, print__Name__
+    d. from .packageA.pkgAfileA import ABCD; from .packageA import pkgAfileB
+    e. from ..packageA.pkgAfileA import ABCD; from ..packageA.pkgAfileB import printCWD, print__Name__
+    f. from ..packageA.pkgAfileA import ABCD; from ..packageA import pkgAfileB
+
+04. cd folderB > python folderBfileA.py 
+    a. from packageA.pkgAfileA import ABCD; from packageA.pkgAfileB import printCWD, print__Name__
+    b. from packageA.pkgAfileA import ABCD; from packageA import pkgAfileB
+    c. from .packageA.pkgAfileA import ABCD; from .packageA.pkgAfileB import printCWD, print__Name__
+    d. from .packageA.pkgAfileA import ABCD; from .packageA import pkgAfileB
+    e. from ..packageA.pkgAfileA import ABCD; from ..packageA.pkgAfileB import printCWD, print__Name__
+    f. from ..packageA.pkgAfileA import ABCD; from ..packageA import pkgAfileB
+
+05. python -m folderB.folderBfileA 
+    a. from packageA.pkgAfileA import ABCD; from packageA.pkgAfileB import printCWD, print__Name__
+    b. from packageA.pkgAfileA import ABCD; from packageA import pkgAfileB
+    c. from .packageA.pkgAfileA import ABCD; from .packageA.pkgAfileB import printCWD, print__Name__
+    d. from .packageA.pkgAfileA import ABCD; from .packageA import pkgAfileB
+    e. from ..packageA.pkgAfileA import ABCD; from ..packageA.pkgAfileB import printCWD, print__Name__
+    f. from ..packageA.pkgAfileA import ABCD; from ..packageA import pkgAfileB
+
+06. cd folderB > python -m folderBfileA 
+    a. from packageA.pkgAfileA import ABCD; from packageA.pkgAfileB import printCWD, print__Name__
+    b. from packageA.pkgAfileA import ABCD; from packageA import pkgAfileB
+    c. from .packageA.pkgAfileA import ABCD; from .packageA.pkgAfileB import printCWD, print__Name__
+    d. from .packageA.pkgAfileA import ABCD; from .packageA import pkgAfileB
+    e. from ..packageA.pkgAfileA import ABCD; from ..packageA.pkgAfileB import printCWD, print__Name__
+    f. from ..packageA.pkgAfileA import ABCD; from ..packageA import pkgAfileB
+
+07. python packageA/pkgAfileC.py 
+    a. from packageA.pkgAfileA import ABCD; from packageA.pkgAfileB import printCWD, print__Name__
+    b. from packageA.pkgAfileA import ABCD; from packageA import pkgAfileB
+    c. from .packageA.pkgAfileA import ABCD; from .packageA.pkgAfileB import printCWD, print__Name__
+    d. from .packageA.pkgAfileA import ABCD; from .packageA import pkgAfileB
+    e. from pkgAfileA import ABCD, from  pkgAfileB import printCWD, print__Name__
+    f. from pkgAfileA import ABCD, import pkgAfileB
+
+08. cd packageA > python pkgAfileC.py 
+    a. from packageA.pkgAfileA import ABCD; from packageA.pkgAfileB import printCWD, print__Name__
+    b. from packageA.pkgAfileA import ABCD; from packageA import pkgAfileB
+    c. from .packageA.pkgAfileA import ABCD; from .packageA.pkgAfileB import printCWD, print__Name__
+    d. from .packageA.pkgAfileA import ABCD; from .packageA import pkgAfileB
+    e. from pkgAfileA import ABCD, from  pkgAfileB import printCWD, print__Name__
+    f. from pkgAfileA import ABCD, import pkgAfileB\
+
+09. python -m packageA.pkgAfileC
+    a. from packageA.pkgAfileA import ABCD; from packageA.pkgAfileB import printCWD, print__Name__
+    b. from packageA.pkgAfileA import ABCD; from packageA import pkgAfileB
+    c. from .packageA.pkgAfileA import ABCD; from .packageA.pkgAfileB import printCWD, print__Name__
+    d. from .packageA.pkgAfileA import ABCD; from .packageA import pkgAfileB
+    e. from pkgAfileA import ABCD, from  pkgAfileB import printCWD, print__Name__
+    f. from pkgAfileA import ABCD, import pkgAfileB
+    
+10. cd packageA > python -m pkgAfileC
+    a. from packageA.pkgAfileA import ABCD; from packageA.pkgAfileB import printCWD, print__Name__
+    b. from packageA.pkgAfileA import ABCD; from packageA import pkgAfileB
+    c. from .packageA.pkgAfileA import ABCD; from .packageA.pkgAfileB import printCWD, print__Name__
+    d. from .packageA.pkgAfileA import ABCD; from .packageA import pkgAfileB
+    e. from pkgAfileA import ABCD, from  pkgAfileB import printCWD, print__Name__
+    f. from pkgAfileA import ABCD, import pkgAfileB
+
+----
+Interative shell in each directory
+
+----
+
+use setUp.py to import - In folderB/, in packageA/, in main/
