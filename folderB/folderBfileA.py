@@ -1,22 +1,67 @@
 import os
+print(os.getcwd())
 try:
+    print('--------------------------------------------------------')
     from packageA.pkgAfileA import ABCD
-    # from packageA.pkgAfileB import printCWD, print__Name__
+    from packageA.pkgAfileB import printCWD, print__Name__
+    printCWD(os.getcwd())
     abcd = ABCD()
     print(type(abcd))
-    # printCWD(os.getcwd())
-    # print__Name__(__name__)
+    print__Name__(__name__)
 except Exception as e:
     print(e)
-    print("Error: unable to import packageA.pkgAfileA")
 
 try:
-    from ..packageA.pkgAfileA import ABCD
-    # from ..packageA.pkgAfileB import printCWD, print__Name__
+    print('--------------------------------------------------------')
+    from packageA.pkgAfileA import ABCD
+    from packageA import pkgAfileB 
+    pkgAfileB.printCWD(os.getcwd())
     abcd = ABCD()
     print(type(abcd))
-    # printCWD(os.getcwd())
-    # print__Name__(__name__)
+    pkgAfileB.print__Name__(__name__)
 except Exception as e:
     print(e)
-    print("Error: unable to import ..packageA.pkgAfileA")
+
+try:
+    print('--------------------------------------------------------')
+    from .packageA.pkgAfileA import ABCD 
+    from .packageA.pkgAfileB import printCWD, print__Name__ 
+    printCWD(os.getcwd())
+    abcd = ABCD()
+    print(type(abcd))
+    print__Name__(__name__)
+except Exception as e:
+    print(e)
+
+try:
+    print('--------------------------------------------------------')
+    from .packageA.pkgAfileA import ABCD
+    from .packageA import pkgAfileB
+    pkgAfileB.printCWD(os.getcwd())
+    abcd = ABCD()
+    print(type(abcd))
+    pkgAfileB.print__Name__(__name__)
+except Exception as e:
+    print(e)
+
+try:
+    print('--------------------------------------------------------')
+    from ..packageA.pkgAfileA import ABCD
+    from ..packageA.pkgAfileB import printCWD, print__Name__
+    printCWD(os.getcwd())
+    abcd = ABCD()
+    print(type(abcd))
+    print__Name__(__name__)
+except Exception as e:
+    print(e)
+
+try:
+    print('--------------------------------------------------------')
+    from ..packageA.pkgAfileA import ABCD
+    from ..packageA import pkgAfileB
+    pkgAfileB.printCWD(os.getcwd())
+    abcd = ABCD()
+    print(type(abcd))
+    pkgAfileB.print__Name__(__name__)
+except Exception as e:
+    print(e)

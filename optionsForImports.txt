@@ -65,20 +65,46 @@
         
 03. python folderB/folderBfileA.py 
     a. from packageA.pkgAfileA import ABCD; from packageA.pkgAfileB import printCWD, print__Name__
+        # OUTPUT:
+        No module named 'packageA'
     b. from packageA.pkgAfileA import ABCD; from packageA import pkgAfileB
+        # OUTPUT:
+        No module named 'packageA'
     c. from .packageA.pkgAfileA import ABCD; from .packageA.pkgAfileB import printCWD, print__Name__
+        # OUTPUT:
+        No module named '__main__.packageA'; '__main__' is not a package
     d. from .packageA.pkgAfileA import ABCD; from .packageA import pkgAfileB
+        # OUTPUT:
+        No module named '__main__.packageA'; '__main__' is not a package
     e. from ..packageA.pkgAfileA import ABCD; from ..packageA.pkgAfileB import printCWD, print__Name__
+        # OUTPUT:
+        attempted relative import beyond top-level package
     f. from ..packageA.pkgAfileA import ABCD; from ..packageA import pkgAfileB
+        # OUTPUT:
+        attempted relative import beyond top-level package
+
 
 04. cd folderB > python folderBfileA.py 
     a. from packageA.pkgAfileA import ABCD; from packageA.pkgAfileB import printCWD, print__Name__
+        # OUTPUT:
+        No module named 'packageA'
     b. from packageA.pkgAfileA import ABCD; from packageA import pkgAfileB
+        # OUTPUT:
+        No module named 'packageA'
     c. from .packageA.pkgAfileA import ABCD; from .packageA.pkgAfileB import printCWD, print__Name__
+        # OUTPUT:
+        No module named '__main__.packageA'; '__main__' is not a package
     d. from .packageA.pkgAfileA import ABCD; from .packageA import pkgAfileB
+        # OUTPUT:
+        No module named '__main__.packageA'; '__main__' is not a package
     e. from ..packageA.pkgAfileA import ABCD; from ..packageA.pkgAfileB import printCWD, print__Name__
+        # OUTPUT:
+        attempted relative import beyond top-level package
     f. from ..packageA.pkgAfileA import ABCD; from ..packageA import pkgAfileB
+        # OUTPUT:
+        attempted relative import beyond top-level package
 
+        
 05. python -m folderB.folderBfileA 
     a. from packageA.pkgAfileA import ABCD; from packageA.pkgAfileB import printCWD, print__Name__
     b. from packageA.pkgAfileA import ABCD; from packageA import pkgAfileB
