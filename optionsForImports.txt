@@ -238,6 +238,20 @@
 ----
 Interative shell in each directory
 
+exploreImports/
+        ---- from packageA.pkgAfileA import ABCD; from packageA.pkgAfileB import printCWD, print__Name__
+    packageA/
+        ---- from packageA.pkgAfileA import ABCD; from packageA.pkgAfileB import printCWD, print__Name__
+        ---- from pkgAfileA import ABCD; from pkgAfileB import printCWD, print__Name__
+        ---- from .pkgAfileA import ABCD; from .pkgAfileB import printCWD, print__Name__
+        pkgAfileA.py
+        pkgAfileB.py
+        pkgAfileC.py
+    packageB/
+        ---- from packageA.pkgAfileA import ABCD; from packageA.pkgAfileB import printCWD, print__Name__
+        ---- from .packageA.pkgAfileA import ABCD; from .packageA.pkgAfileB import printCWD, print__Name__
+        ---- from ..packageA.pkgAfileA import ABCD; from ..packageA.pkgAfileB import printCWD, print__Name__
+        pkgBfileA.py
 ----
 
 use setUp.py to import - In folderB/, in packageA/, in main/
