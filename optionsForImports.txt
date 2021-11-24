@@ -104,14 +104,45 @@
         # OUTPUT:
         attempted relative import beyond top-level package
 
-        
+
 05. python -m folderB.folderBfileA 
     a. from packageA.pkgAfileA import ABCD; from packageA.pkgAfileB import printCWD, print__Name__
+        # OUTPUT:
+        The current Working Directory is :  C:\Users\anirb\Downloads\exploreImports
+        ABCD
+        Class imported from : 
+        This function (inside packageA/pkAfileB.py) is in :  packageA.pkgAfileB
+        The name of the module calling this function is :  packageA.pkgAfileA
+        <class 'packageA.pkgAfileA.ABCD'>
+        This function (inside packageA/pkAfileB.py) is in :  packageA.pkgAfileB
+        The name of the module calling this function is :  __main__
+
     b. from packageA.pkgAfileA import ABCD; from packageA import pkgAfileB
+        # OUTPUT:
+        The current Working Directory is :  C:\Users\anirb\Downloads\exploreImports
+        ABCD
+        Class imported from :
+        This function (inside packageA/pkAfileB.py) is in :  packageA.pkgAfileB
+        The name of the module calling this function is :  packageA.pkgAfileA
+        <class 'packageA.pkgAfileA.ABCD'>
+        This function (inside packageA/pkAfileB.py) is in :  packageA.pkgAfileB
+        The name of the module calling this function is :  __main__
+
     c. from .packageA.pkgAfileA import ABCD; from .packageA.pkgAfileB import printCWD, print__Name__
+        # OUTPUT:
+        No module named 'folderB.packageA'
+
     d. from .packageA.pkgAfileA import ABCD; from .packageA import pkgAfileB
+        # OUTPUT:
+        No module named 'folderB.packageA'
+
     e. from ..packageA.pkgAfileA import ABCD; from ..packageA.pkgAfileB import printCWD, print__Name__
+        # OUTPUT:
+        attempted relative import beyond top-level package
+
     f. from ..packageA.pkgAfileA import ABCD; from ..packageA import pkgAfileB
+        # OUTPUT:
+        attempted relative import beyond top-level package
 
 06. cd folderB > python -m folderBfileA 
     a. from packageA.pkgAfileA import ABCD; from packageA.pkgAfileB import printCWD, print__Name__
