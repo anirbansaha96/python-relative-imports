@@ -311,3 +311,113 @@ exploreImports/
 ----
 
 use setUp.py to import - In folderB/, in packageA/, in packageC/, in main/
+
+----
+Try adding subpackage to package:
+Import item from packageA in AsubpackageA [Done - 16, 17]
+Import item from AsubpackageA in packageA [Done - 18, 19]
+Import item from AsubpackageA in another AsubpackageB [Done - 20, 21]
+Import item from packageC in AsubpackageA [Done - 22, 23]
+Import item from AsubpackageA in packageC [Done - 24, 25]
+
+16. python -m packageA.AsubpackageA.AsubpackageAfileA
+    a. from packageA.pkgAfileA import ABCD; from packageA.pkgAfileB import printCWD, print__Name__
+        ABCD
+        Class imported from : 
+        This function (inside packageA/pkAfileB.py) is in :  packageA.pkgAfileB
+        The name of the module calling this function is :  packageA.pkgAfileA
+        <class 'packageA.pkgAfileA.ABCD'>
+        This function (inside packageA/pkAfileB.py) is in :  packageA.pkgAfileB
+        The name of the module calling this function is :  __main__
+    b. from ..packageA.pkgAfileA import ABCD; from ..packageA.pkgAfileB import printCWD, print__Name__
+        attempted relative import beyond top-level package
+    c. from ..pkgAfileA import ABCD, from ..pkgAfileB import printCWD, print__Name__
+        ABCD
+        Class imported from :
+        This function (inside packageA/pkAfileB.py) is in :  packageA.pkgAfileB
+        The name of the module calling this function is :  packageA.pkgAfileA
+        <class 'packageA.pkgAfileA.ABCD'>
+        This function (inside packageA/pkAfileB.py) is in :  packageA.pkgAfileB
+        The name of the module calling this function is :  __main__
+
+17. python packageA/AsubpackageA/AsubpackageAfileA.py 
+    a. from packageA.pkgAfileA import ABCD; from packageA.pkgAfileB import printCWD, print__Name__
+        No module named 'packageA'
+    b. from ..packageA.pkgAfileA import ABCD; from ..packageA.pkgAfileB import printCWD, print__Name__
+        attempted relative import beyond top-level package
+    c. from ..pkgAfileA import ABCD, from ..pkgAfileB import printCWD, print__Name__
+        attempted relative import beyond top-level package
+
+18. python -m packageA.packageAfileD
+    a. from packageA.AsubpackageA.AsubpackageAfileB import MNOP
+        MNOP
+        Class imported from :
+        This function (inside packageA/pkAfileB.py) is in :  packageA.pkgAfileB
+        The name of the module calling this function is :  packageA.AsubpackageA.AsubpackageAfileB
+        <class 'packageA.AsubpackageA.AsubpackageAfileB.MNOP'>
+    b. from .AsubpackageA.AsubpackageAfileB import MNOP
+        MNOP
+        Class imported from :
+        This function (inside packageA/pkAfileB.py) is in :  packageA.pkgAfileB
+        The name of the module calling this function is :  packageA.AsubpackageA.AsubpackageAfileB
+        <class 'packageA.AsubpackageA.AsubpackageAfileB.MNOP'>
+
+19. python packageA/packageAfileD.py 
+ a. from packageA.AsubpackageA.AsubpackageAfileB import MNOP
+        No module named 'packageA'
+    b. from .AsubpackageA.AsubpackageAfileB import MNOP
+        No module named '__main__.AsubpackageA'; '__main__' is not a package
+
+20. python -m packageA.AsubpackageB.AsubpackageBfileA
+    a. from packageA.AsubpackageA.AsubpackageAfileB import MNOP
+        MNOP
+        Class imported from :
+        This function (inside packageA/pkAfileB.py) is in :  packageA.pkgAfileB
+        The name of the module calling this function is :  packageA.AsubpackageA.AsubpackageAfileB
+        <class 'packageA.AsubpackageA.AsubpackageAfileB.MNOP'>
+    b. from .AsubpackageA.AsubpackageAfileB import MNOP
+        MNOP
+        Class imported from :
+        This function (inside packageA/pkAfileB.py) is in :  packageA.pkgAfileB
+        The name of the module calling this function is :  packageA.AsubpackageA.AsubpackageAfileB
+        <class 'packageA.AsubpackageA.AsubpackageAfileB.MNOP'>
+
+21. python packageA/AsubpackageB/AsubpackageBfileA.py 
+    a. from packageA.AsubpackageA.AsubpackageAfileB import MNOP
+        No module named 'packageA'
+    b. from .AsubpackageA.AsubpackageAfileB import MNOP
+        attempted relative import beyond top-level package
+
+22. python -m packageA.AsubpackageA.AsubpackageAfileC
+    a. from packageC.pkgCfileB import WXYZ
+        WXYZ
+        Class imported from :
+        This function (inside packageA/pkAfileB.py) is in :  packageA.pkgAfileB
+        The name of the module calling this function is :  packageC.pkgCfileB
+        <class 'packageC.pkgCfileB.WXYZ'>
+    b. from ...packageC.pkgCfileB import WXYZ
+        attempted relative import beyond top-level package
+
+23. python packageA/AsubpackageA/AsubpackageAfileC.py
+    a. from packageC.pkgCfileB import WXYZ
+        No module named 'packageC'
+    b. from ...packageC.pkgCfileB import WXYZ
+        attempted relative import beyond top-level package
+
+24. python -m packageC.pkgCfileC
+    a. from packageA.AsubpackageA.AsubpackageAfileB import MNOP
+        MNOP
+        Class imported from :
+        This function (inside packageA/pkAfileB.py) is in :  packageA.pkgAfileB
+        The name of the module calling this function is :  packageA.AsubpackageA.AsubpackageAfileB
+        <class 'packageA.AsubpackageA.AsubpackageAfileB.MNOP'>
+        
+    b. from ..packageA.AsubpackageA.AsubpackageAfileB import MNOP
+        attempted relative import beyond top-level package
+        
+
+25. python packageC/pkgCfileC.py
+    a. from packageA.AsubpackageA.AsubpackageAfileB import MNOP
+        No module named 'packageA'
+    b. from ..packageA.AsubpackageA.AsubpackageAfileB import MNOP
+        attempted relative import beyond top-level package
