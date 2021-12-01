@@ -297,6 +297,8 @@ use setUp.py to import - In folderB/, in packageA/, in packageC/, in main/
 
 ----
 Try adding subpackage to package:
-Import item from package in subpackage
-Import item from subpackage in package
-Import item from subpackage in another subpackage
+Import item from packageA in AsubpackageA
+Import item from AsubpackageA in packageA
+Import item from AsubpackageB in another AsubpackageA
+Import item from packageC in AsubpackageA
+Import item from AsubpackageB in packageC
