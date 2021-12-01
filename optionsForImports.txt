@@ -240,18 +240,35 @@ Interative shell in each directory
 
 exploreImports/
         ---- from packageA.pkgAfileA import ABCD; from packageA.pkgAfileB import printCWD, print__Name__
+            # OUTPUT:
+            ABCD
+            Class imported from : 
+            This function (inside packageA/pkAfileB.py) is in :  packageA.pkgAfileB
+            The name of the module calling this function is :  packageA.pkgAfileA
+            <class 'packageA.pkgAfileA.ABCD'>
+            This function (inside packageA/pkAfileB.py) is in :  packageA.pkgAfileB
+            The name of the module calling this function is :  __main__
     packageA/
         ---- from packageA.pkgAfileA import ABCD; from packageA.pkgAfileB import printCWD, print__Name__
+                # OUTPUT:
+                ModuleNotFoundError: No module named 'packageA'
         ---- from pkgAfileA import ABCD; from pkgAfileB import printCWD, print__Name__
+                # OUTPUT:
+                ImportError: attempted relative import with no known parent package
         ---- from .pkgAfileA import ABCD; from .pkgAfileB import printCWD, print__Name__
-        pkgAfileA.py
-        pkgAfileB.py
-        pkgAfileC.py
-    packageB/
+                # OUTPUT:
+                ImportError: attempted relative import with no known parent package
+
+    folderB/
         ---- from packageA.pkgAfileA import ABCD; from packageA.pkgAfileB import printCWD, print__Name__
+            # OUTPUT:
+            ModuleNotFoundError: No module named 'packageA'
         ---- from .packageA.pkgAfileA import ABCD; from .packageA.pkgAfileB import printCWD, print__Name__
+            # OUTPUT:
+            ImportError: attempted relative import with no known parent package
         ---- from ..packageA.pkgAfileA import ABCD; from ..packageA.pkgAfileB import printCWD, print__Name__
-        pkgBfileA.py
+            # OUTPUT:
+            ImportError: attempted relative import with no known parent package
 ----
 
 use setUp.py to import - In folderB/, in packageA/, in main/
