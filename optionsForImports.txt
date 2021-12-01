@@ -294,3 +294,9 @@ exploreImports/
 ----
 
 use setUp.py to import - In folderB/, in packageA/, in packageC/, in main/
+
+----
+Try adding subpackage to package:
+Import item from package in subpackage
+Import item from subpackage in package
+Import item from subpackage in another subpackage
